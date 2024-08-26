@@ -3,6 +3,7 @@ import { cn } from '@/lib/cn'
 import { cva, type VariantProps } from 'class-variance-authority'
 import * as React from 'react'
 import { Pressable } from 'react-native'
+import Animated from 'react-native-reanimated'
 
 const buttonVariants = cva(
   'group flex items-center justify-center rounded-md web:ring-offset-background web:transition-colors web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2',
@@ -60,27 +61,29 @@ const buttonTextVariants = cva(
 type ButtonProps = React.ComponentPropsWithoutRef<typeof Pressable> &
   VariantProps<typeof buttonVariants>
 
-const Button = React.forwardRef<React.ElementRef<typeof Pressable>, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
-    return (
-      <TextClassContext.Provider
-        value={cn(
-          props.disabled && 'web:pointer-events-none',
-          buttonTextVariants({ variant, size })
-        )}
-      >
-        <Pressable
-          className={cn(
-            props.disabled && 'opacity-50 web:pointer-events-none',
-            buttonVariants({ variant, size, className })
+const Button = Animated.createAnimatedComponent(
+  React.forwardRef<React.ElementRef<typeof Pressable>, ButtonProps>(
+    ({ className, variant, size, ...props }, ref) => {
+      return (
+        <TextClassContext.Provider
+          value={cn(
+            props.disabled && 'web:pointer-events-none',
+            buttonTextVariants({ variant, size })
           )}
-          ref={ref}
-          role='button'
-          {...props}
-        />
-      </TextClassContext.Provider>
-    )
-  }
+        >
+          <Pressable
+            className={cn(
+              props.disabled && 'opacity-50 web:pointer-events-none',
+              buttonVariants({ variant, size, className })
+            )}
+            ref={ref}
+            role='button'
+            {...props}
+          />
+        </TextClassContext.Provider>
+      )
+    }
+  )
 )
 Button.displayName = 'Button'
 
