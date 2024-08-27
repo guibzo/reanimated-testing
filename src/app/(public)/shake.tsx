@@ -23,7 +23,7 @@ export const Shake = () => {
     return {
       transform: [
         {
-          translateX: interpolate(shake.value, [0, 1.5, 3], [0, 15, 0]),
+          translateX: interpolate(shake.value, [0, 1.5, 2, 3], [0, -15, 15, 0]),
         },
       ],
     }

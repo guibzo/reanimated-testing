@@ -7,7 +7,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated'
 
-export const ToggleButton = () => {
+export const ColorButton = () => {
   const [isToggled, setIsToggled] = useState(true)
   const isToggledAnimated = useSharedValue(1)
 
@@ -29,7 +29,7 @@ export const ToggleButton = () => {
 
   return (
     <Button onPress={handleToggle} style={animatedButtonBG} className='border'>
-      <Animated.Text style={animatedText}>{isToggled ? 'Toggled' : 'Not toggled'}</Animated.Text>
+      <Animated.Text style={animatedText}>Change color</Animated.Text>
     </Button>
   )
 }

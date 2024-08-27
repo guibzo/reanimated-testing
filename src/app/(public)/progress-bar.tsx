@@ -55,9 +55,9 @@ export const ProgressBar = () => {
 
   return (
     <View className='w-full gap-2 border-2 rounded-md border-border'>
-      <Animated.View className='h-2 rounded-md bg-emerald-500' style={animatedPercentage} />
+      <Animated.View className='h-2 bg-red-500 rounded-md' style={animatedPercentage} />
 
-      <View className='flex flex-row gap-2'>
+      <View className='flex flex-row w-full gap-2'>
         <Button onPress={handleIncrease} className='flex-1 w-auto'>
           <Text>+</Text>
         </Button>

@@ -7,7 +7,7 @@ export default function PublicLayout() {
     <SafeAreaView style={{ flex: 1 }}>
       <View className='flex flex-1 w-full max-w-5xl p-5 mx-auto'>
         <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name='auth/test' />
+          <Stack.Screen name='index' />
         </Stack>
       </View>
     </SafeAreaView>
