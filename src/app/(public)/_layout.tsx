@@ -8,6 +8,7 @@ export default function PublicLayout() {
       <View className='flex flex-1 w-full max-w-5xl p-5 mx-auto'>
         <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name='index' />
+          <Stack.Screen name='_animations' />
         </Stack>
       </View>
     </SafeAreaView>

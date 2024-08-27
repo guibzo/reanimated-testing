@@ -72,7 +72,10 @@ export const List = () => {
         contentContainerClassName='gap-1.5'
         columnWrapperClassName='gap-1.5'
         renderItem={({ item, index }) => (
-          <Card entering={FadeIn.delay(index * 75)} className='items-center justify-center flex-1'>
+          <Card
+            entering={FadeIn.delay(index * 100)}
+            className='items-center justify-center flex-1 bg-emerald-600'
+          >
             <CardContent className='p-4 pt-4'>
               <Text>{item.title}</Text>
             </CardContent>
