@@ -1,9 +1,9 @@
 import { Button } from '@/components/ui/button'
-import { AnimatedCard, CardContent } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Text } from '@/components/ui/text'
 import { useState } from 'react'
 import { View } from 'react-native'
-import Animated, { FadeIn } from 'react-native-reanimated'
+import Animated, { LinearTransition } from 'react-native-reanimated'
 
 const dataMock = [
   {
@@ -41,18 +41,18 @@ const dataMock = [
   },
 ]
 
-export const List = () => {
-  const [data, setData] = useState(() => dataMock.slice(0, 4))
+export const LayoutList = () => {
+  const [data, setData] = useState(() => dataMock.slice(0, 2))
 
   const handleChangeListData = () => {
-    if (data.includes(dataMock[0])) {
-      const lastFourItems = dataMock.slice(4, 8)
+    if (data.length === 2) {
+      const lastSixItems = dataMock.slice(2, 8)
 
-      return setData(lastFourItems)
+      return setData(lastSixItems)
     }
 
-    const firstFourItems = dataMock.slice(0, 4)
-    setData(firstFourItems)
+    const firstTwoItems = dataMock.slice(0, 2)
+    setData(firstTwoItems)
   }
 
   return (
@@ -65,17 +65,15 @@ export const List = () => {
         numColumns={2}
         keyExtractor={(item) => item.id}
         data={data}
+        layout={LinearTransition}
         contentContainerClassName='gap-1.5 grow'
         columnWrapperClassName='gap-1.5'
-        renderItem={({ item, index }) => (
-          <AnimatedCard
-            entering={FadeIn.delay(index * 100)}
-            className='items-center justify-center flex-1 bg-emerald-500'
-          >
+        renderItem={({ item }) => (
+          <Card className='items-center justify-center flex-1 bg-emerald-500'>
             <CardContent className='p-4 pt-4'>
               <Text>{item.title}</Text>
             </CardContent>
-          </AnimatedCard>
+          </Card>
         )}
       />
     </View>

@@ -61,31 +61,31 @@ const buttonTextVariants = cva(
 type ButtonProps = React.ComponentPropsWithoutRef<typeof Pressable> &
   VariantProps<typeof buttonVariants>
 
-const Button = Animated.createAnimatedComponent(
-  React.forwardRef<React.ElementRef<typeof Pressable>, ButtonProps>(
-    ({ className, variant, size, ...props }, ref) => {
-      return (
-        <TextClassContext.Provider
-          value={cn(
-            props.disabled && 'web:pointer-events-none',
-            buttonTextVariants({ variant, size })
+const Button = React.forwardRef<React.ElementRef<typeof Pressable>, ButtonProps>(
+  ({ className, variant, size, ...props }, ref) => {
+    return (
+      <TextClassContext.Provider
+        value={cn(
+          props.disabled && 'web:pointer-events-none',
+          buttonTextVariants({ variant, size })
+        )}
+      >
+        <Pressable
+          className={cn(
+            props.disabled && 'opacity-50 web:pointer-events-none',
+            buttonVariants({ variant, size, className })
           )}
-        >
-          <Pressable
-            className={cn(
-              props.disabled && 'opacity-50 web:pointer-events-none',
-              buttonVariants({ variant, size, className })
-            )}
-            ref={ref}
-            role='button'
-            {...props}
-          />
-        </TextClassContext.Provider>
-      )
-    }
-  )
+          ref={ref}
+          role='button'
+          {...props}
+        />
+      </TextClassContext.Provider>
+    )
+  }
 )
 Button.displayName = 'Button'
 
-export { Button, buttonTextVariants, buttonVariants }
+const AnimatedButton = Animated.createAnimatedComponent(Button)
+
+export { AnimatedButton, Button, buttonTextVariants, buttonVariants }
 export type { ButtonProps }

@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { AnimatedButton } from '@/components/ui/button'
 import React from 'react'
 import { Text, useWindowDimensions, View } from 'react-native'
 import {
@@ -38,13 +38,13 @@ export const IncreaseableButtons = () => {
 
   return (
     <View className='items-center w-full gap-2'>
-      <Button size='sm' style={animatedWidth} onPress={handleIncreaseButtonWidth}>
+      <AnimatedButton size='sm' style={animatedWidth} onPress={handleIncreaseButtonWidth}>
         <Text className='text-white'>Increase</Text>
-      </Button>
+      </AnimatedButton>
 
-      <Button size='sm' style={animatedWidth} onPress={handleDecreaseButtonWidth}>
+      <AnimatedButton size='sm' style={animatedWidth} onPress={handleDecreaseButtonWidth}>
         <Text className='text-white'>Decrease</Text>
-      </Button>
+      </AnimatedButton>
     </View>
   )
 }

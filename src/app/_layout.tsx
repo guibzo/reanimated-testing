@@ -7,6 +7,7 @@ import { Slot } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import { useEffect, useState } from 'react'
 import { Platform } from 'react-native'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import 'react-native-reanimated'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 export { ErrorBoundary } from 'expo-router'
@@ -91,9 +92,11 @@ export default function Layout() {
   return (
     <SafeAreaProvider>
       <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-        <Slot />
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <Slot />
 
-        {/* <PortalHost /> */}
+          {/* <PortalHost /> */}
+        </GestureHandlerRootView>
       </ThemeProvider>
     </SafeAreaProvider>
   )

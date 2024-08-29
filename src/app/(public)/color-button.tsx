@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { AnimatedButton } from '@/components/ui/button'
 import { useEffect, useState } from 'react'
 import Animated, {
   interpolateColor,
@@ -28,8 +28,8 @@ export const ColorButton = () => {
   }, [isToggled])
 
   return (
-    <Button onPress={handleToggle} style={animatedButtonBG} className='border'>
+    <AnimatedButton onPress={handleToggle} style={animatedButtonBG} className='border'>
       <Animated.Text style={animatedText}>Change color</Animated.Text>
-    </Button>
+    </AnimatedButton>
   )
 }

@@ -5,21 +5,22 @@ import * as React from 'react'
 import { Text, View } from 'react-native'
 import Animated from 'react-native-reanimated'
 
-const Card = Animated.createAnimatedComponent(
-  React.forwardRef<ViewRef, React.ComponentPropsWithoutRef<typeof View>>(
-    ({ className, ...props }, ref) => (
-      <View
-        ref={ref}
-        className={cn(
-          'rounded-lg border border-border bg-primary shadow-sm shadow-foreground/10',
-          className
-        )}
-        {...props}
-      />
-    )
+const Card = React.forwardRef<ViewRef, React.ComponentPropsWithoutRef<typeof View>>(
+  ({ className, ...props }, ref) => (
+    <View
+      ref={ref}
+      className={cn(
+        'rounded-lg border border-border bg-primary shadow-sm shadow-foreground/10',
+        className
+      )}
+      {...props}
+    />
   )
 )
+
 Card.displayName = 'Card'
+
+const AnimatedCard = Animated.createAnimatedComponent(Card)
 
 const CardHeader = React.forwardRef<ViewRef, React.ComponentPropsWithoutRef<typeof View>>(
   ({ className, ...props }, ref) => (
@@ -67,4 +68,4 @@ const CardFooter = React.forwardRef<ViewRef, React.ComponentPropsWithoutRef<type
 )
 CardFooter.displayName = 'CardFooter'
 
-export { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
+export { AnimatedCard, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }

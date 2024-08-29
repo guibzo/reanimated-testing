@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
+import { AnimatedCard, CardContent } from '@/components/ui/card'
 import { Text } from '@/components/ui/text'
 import { useState } from 'react'
 import { useWindowDimensions, View } from 'react-native'
@@ -56,11 +56,11 @@ export const KeyframeCardEntering = () => {
       </Button>
 
       {showCard && (
-        <Card className='bg-red-500' entering={enteringKeyFrame} exiting={exitingKeyFrame}>
+        <AnimatedCard className='bg-red-500' entering={enteringKeyFrame} exiting={exitingKeyFrame}>
           <CardContent>
             <Text>Card testing</Text>
           </CardContent>
-        </Card>
+        </AnimatedCard>
       )}
     </View>
   )
