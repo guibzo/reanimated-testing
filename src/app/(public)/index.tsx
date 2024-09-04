@@ -1,34 +1,40 @@
 import { Button } from '@/components/ui/button'
 import { Text } from '@/components/ui/text'
 import { Link } from 'expo-router'
-import React from 'react'
 import { View } from 'react-native'
-import { ColorButton } from './color-button'
-import { FadeOnView } from './fade-on-view'
-import { IncreaseableButtons } from './increaseable-buttons'
-import { KeyframeCardEntering } from './keyframe-card-entering'
-import { List } from './list'
-import { ProgressBar } from './progress-bar'
-import { Shake } from './shake'
 
 export default function Page() {
   return (
-    <View className='flex-1 gap-5'>
-      <IncreaseableButtons />
-      <ColorButton />
-      <ProgressBar />
-      <Shake />
-      <FadeOnView />
-      <List />
-      <KeyframeCardEntering />
+    <View className='flex-col justify-center flex-1 gap-2.5'>
+      <Link asChild href='/animations'>
+        <Button className='w-full'>
+          <Text>See animations</Text>
+        </Button>
+      </Link>
 
-      <View className='flex-1'>
-        <Link asChild href='/_animations' className='mt-auto'>
-          <Button>
-            <Text>More animations</Text>
-          </Button>
-        </Link>
-      </View>
+      <Link asChild href='/more-animations'>
+        <Button className='w-full'>
+          <Text>See more animations</Text>
+        </Button>
+      </Link>
+
+      <Link asChild href='/scroll-view'>
+        <Button className='w-full'>
+          <Text>See scroll view</Text>
+        </Button>
+      </Link>
+
+      <Link asChild href='/skia'>
+        <Button className='w-full'>
+          <Text>See Skia</Text>
+        </Button>
+      </Link>
+
+      <Link asChild href='/quiz-overlay-feedback'>
+        <Button className='w-full'>
+          <Text>See quiz feedback</Text>
+        </Button>
+      </Link>
     </View>
   )
 }

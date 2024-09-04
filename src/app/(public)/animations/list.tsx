@@ -63,6 +63,7 @@ export const List = () => {
 
       <Animated.FlatList
         numColumns={2}
+        nestedScrollEnabled
         keyExtractor={(item) => item.id}
         data={data}
         contentContainerClassName='gap-1.5 grow'

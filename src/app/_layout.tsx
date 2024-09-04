@@ -2,7 +2,7 @@ import { useColorScheme } from '@/hooks/use-color-scheme'
 import { NAV_THEME } from '@/styles/constants'
 import '@/styles/global.css'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import { ThemeProvider, type Theme } from '@react-navigation/native'
+import { type Theme, ThemeProvider } from '@react-navigation/native'
 import { Slot } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import { useEffect, useState } from 'react'
@@ -42,6 +42,7 @@ export default function Layout() {
   const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme()
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = useState(false)
 
+  // @ts-ignore
   useEffect(() => {
     ;(async () => {
       const theme = await AsyncStorage.getItem('theme')
@@ -56,7 +57,7 @@ export default function Layout() {
         return
       }
 
-      const colorTheme = theme === 'dark' ? 'dark' : 'light'
+      const colorTheme = 'light'
 
       if (colorTheme !== colorScheme) {
         setColorScheme(colorTheme)

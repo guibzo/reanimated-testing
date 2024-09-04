@@ -1,6 +1,6 @@
 import { LucideInfo, LucideTrash } from '@/components/icons'
 import { Button } from '@/components/ui/button'
-import { AnimatedCard, Card, CardContent } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Text } from '@/components/ui/text'
 import { View } from 'react-native'
 import { Swipeable } from 'react-native-gesture-handler'
@@ -19,7 +19,7 @@ export const Swipe = () => {
       >
         <Card className='items-center justify-center bg-zinc-600'>
           <CardContent className='p-4 pt-4'>
-            <Text>Swipe me!</Text>
+            <Text>Swipe me to right!</Text>
           </CardContent>
         </Card>
       </Swipeable>
@@ -32,13 +32,13 @@ export const Swipe = () => {
             </Button>
           )
         }}
-        rightThreshold={10}
+        // rightThreshold={10}
       >
-        <AnimatedCard className='items-center justify-center bg-zinc-600'>
+        <Card className='items-center justify-center bg-zinc-600'>
           <CardContent className='p-4 pt-4'>
-            <Text>Swipe me!</Text>
+            <Text>Swipe me to left!</Text>
           </CardContent>
-        </AnimatedCard>
+        </Card>
       </Swipeable>
     </View>
   )

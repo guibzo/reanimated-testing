@@ -42,7 +42,6 @@ export const FadeOnView = () => {
           />
         )}
       </View>
-
       <View className='flex-row items-center gap-3'>
         <Button onPress={() => setShowRotateFade((prev) => !prev)}>
           <Text>{showRotateFade ? 'Fade out' : 'Fade in'}</Text>

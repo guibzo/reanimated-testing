@@ -63,6 +63,7 @@ export const LayoutList = () => {
 
       <Animated.FlatList
         numColumns={2}
+        nestedScrollEnabled
         keyExtractor={(item) => item.id}
         data={data}
         layout={LinearTransition}
