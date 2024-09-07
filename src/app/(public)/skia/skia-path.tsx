@@ -12,6 +12,7 @@ export const SkiaPath = () => {
   const [isChecked, setIsChecked] = useState(false)
 
   const skiaPath = Skia.Path.Make()
+
   const progressPercentage = useSharedValue(0)
 
   useEffect(() => {
@@ -34,7 +35,7 @@ export const SkiaPath = () => {
           style='stroke'
           strokeWidth={CIRCLE_STROKE_WIDTH}
           start={0}
-          end={1}
+          end={progressPercentage.value}
         />
       </Canvas>
 

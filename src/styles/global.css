@@ -4,6 +4,10 @@
 
 @layer base {
   :root {
+    const BLUE_STAR_COLOR = '#57B6E5'
+    const GREEN_STAR_COLOR = '#00B737'
+    const GREY_STAR_COLOR = '#6F6F6F'
+
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -23,6 +27,10 @@
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
+
+    --blue-star: '#57B6E5',
+    --green-star: '#00B737',
+    --grey-star: '#6F6F6F',
   }
 
   .dark:root {
@@ -45,5 +53,9 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
+    
+    --blue-star: '#57B6E5',
+    --green-star: '#00B737',
+    --grey-star: '#6F6F6F',
   }
 }
